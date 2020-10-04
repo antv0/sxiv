@@ -18,8 +18,14 @@ enum {
  * (first/last value is used as min/max zoom level)
  */
 static const float zoom_levels[] = {
-	 12.5,  25.0,  50.0,  75.0,
-	100.0, 150.0, 200.0, 400.0, 800.0
+	 // 12.5,  25.0,  50.0,  75.0,
+	// 100.0, 150.0, 200.0, 400.0, 800.0
+	10.5, 13.5, 17.0, 21.0,
+	26.0, 33.0, 41.0, 51.0,
+	64.0, 80.0, 100.0, 125.0,
+	156.0, 195.5, 244.0, 305.0,
+	381.5, 477.0, 596.0, 745.0,
+	931.5
 };
 
 /* default slideshow delay (in sec, overwritten via -S option): */
@@ -142,11 +148,13 @@ static const keymap_t keys[] = {
 /* mouse button mappings for image mode: */
 static const button_t buttons[] = {
 	/* modifiers    button            function              argument */
-	{ 0,            1,                i_cursor_navigate,    None },
+	{ 0,            1,                i_drag, 				None },
 	{ 0,            2,                i_drag,               DRAG_ABSOLUTE },
 	{ 0,            3,                g_switch_mode,        None },
 	{ 0,            4,                g_zoom,               +1 },
 	{ 0,            5,                g_zoom,               -1 },
+	{ 0,            8,                i_navigate,           +1 },
+	{ 0,            9,                i_navigate,           -1 },
 };
 
 #endif
